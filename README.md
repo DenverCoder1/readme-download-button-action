@@ -1,4 +1,12 @@
+# Readme Download Button Action
 
-[![Download ](https://custom-icon-badges.herokuapp.com/badge/-Download-?style=for-the-badge&logo=download&logoColor=white "Download ")](https://github.com///archive/.)
+GitHub Action workflow configuration for keeping a direct download link to the latest version on your repo's readme
 
-[![Download ](https://custom-icon-badges.herokuapp.com/badge/-Download-?style=for-the-badge&logo=download&logoColor=white "Download ")](https://github.com///archive/.)
+## Example
+
+<!-- BEGIN LATEST DOWNLOAD BUTTON -->
+<!-- END LATEST DOWNLOAD BUTTON -->
+
+## Usage
+
+TBD
