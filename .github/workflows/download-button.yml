@@ -20,14 +20,15 @@ jobs:
           view_top: 1
 
       - name: Update readme
+        env:
+          GITHUB_USER: "DenverCoder1"
+          REPO: "readme-download-button-action"
+          FORMAT: "zip"
+          VERSION: "${{ steps.get-latest-release.outputs.tag_name }}"
+          COLOR: "blue"
+          BEGIN_TAG: "<!-- BEGIN LATEST DOWNLOAD BUTTON -->"
+          END_TAG: "<!-- END LATEST DOWNLOAD BUTTON -->"
         run: |
-          GITHUB_USER="DenverCoder1"
-          REPO="readme-download-button-action"
-          FORMAT="zip"
-          VERSION="${{ steps.get-latest-release.outputs.tag_name }}"
-          COLOR="blue"
-          BEGIN_TAG="<!-- BEGIN LATEST DOWNLOAD BUTTON -->"
-          END_TAG="<!-- END LATEST DOWNLOAD BUTTON -->"
           UPDATE=$(cat README.md | perl -0777 -pe 's#(${BEGIN_TAG})(?:.|\n)*(${END_TAG})#${1}\n[![Download ${FORMAT}](https://custom-icon-badges.herokuapp.com/badge/-Download-${COLOR}?style=for-the-badge&logo=download&logoColor=white "Download ${FORMAT}")](https://github.com/${GITHUB_USER}/${REPO}/archive/${VERSION}.${FORMAT})\n${2}#g')
           echo "${UPDATE}" > README.md
 
