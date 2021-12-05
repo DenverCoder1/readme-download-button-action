@@ -1,0 +1,33 @@
+name: "Download Button Action"
+
+on:
+  release:
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Get latest release
+        id: get-latest-release
+        uses: InsonusK/get-latest-release@v1.0.1
+        with:
+          myToken: ${{ github.token }}
+          view_top: 1
+
+      - name: Update readme
+        run: |
+          GITHUB_USER="DenverCoder1"
+          REPO="readme-download-button-action"
+          FORMAT="zip"
+          VERSION="${{ steps.get-latest-release.outputs.tag_name }}"
+          COLOR="blue"
+          UPDATE=$(cat README.md | perl -0777 -pe 's#(<!-- BEGIN LATEST DOWNLOAD BUTTON -->)(?:.|\n)*(<!-- END LATEST DOWNLOAD BUTTON -->)#${1}\n[![Download ${FORMAT}](https://custom-icon-badges.herokuapp.com/badge/-Download-${COLOR}?style=for-the-badge&logo=download&logoColor=white "Download ${FORMAT}")](https://github.com/${GITHUB_USER}/${REPO}/archive/${VERSION}.${FORMAT})\n${2}#g')
+          echo "${UPDATE}" > README.md
+
+      - uses: EndBug/add-and-commit@v7
+        with:
+          message: 'docs: Bump version to ${{ steps.get-latest-release.outputs.tag_name }}'
+          default_author: github_actions
