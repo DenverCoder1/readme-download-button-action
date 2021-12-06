@@ -7,7 +7,7 @@ GitHub Action workflow configuration for keeping a direct download link of the l
 With a single click of the button below, a zip of this repository start downloading.
 
 <!-- BEGIN LATEST DOWNLOAD BUTTON -->
-[![Download zip](https://custom-icon-badges.herokuapp.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://github.com/DenverCoder1/readme-download-button-action/archive/0.0.3.zip)
+[![Download zip](https://custom-icon-badges.herokuapp.com/badge/-Download-blue?style=for-the-badge&logo=download&logoColor=white "Download zip")](https://github.com/DenverCoder1/readme-download-button-action/archive/1.0.1.zip)
 <!-- END LATEST DOWNLOAD BUTTON -->
 
 The URL this button leads to is automatically updated on each release by this [workflow](.github/workflows/download-button.yml).
